@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kasirium | Penerimaan Kas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">K</span><span>kasirium</span></div>
+      <div class="side-label">Workspace</div>
+      <nav><a class="nav-item active" href="#dashboard"><span>▦</span> Ringkasan</a><a class="nav-item" href="#transaksi"><span>＋</span> Penerimaan kas</a></nav>
+      <div class="sidebar-footer"><span class="status-dot"></span><span>Database online</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar"><div><p class="eyebrow">SENIN, 21 SEPTEMBER 2026</p><h1>Selamat datang kembali.</h1></div><div class="profile"><span class="profile-avatar">AD</span><span><strong>Admin</strong><small>Keuangan</small></span></div></header>
+
+      <section id="dashboard" class="page-section">
+        <div class="section-heading"><div><p class="eyebrow accent">OVERVIEW</p><h2>Ringkasan kas</h2></div><button class="primary-button" data-scroll="#transaksi"><span>＋</span> Catat penerimaan</button></div>
+        <div id="summary-cards" class="summary-grid"><article class="summary-card coral"><span class="card-icon">↗</span><p>Total penerimaan</p><strong data-summary="totalReceipt">Rp 0</strong><small>Akumulasi seluruh transaksi</small></article><article class="summary-card mint"><span class="card-icon">◈</span><p>Saldo kas saat ini</p><strong data-summary="currentBalance">Rp 0</strong><small>Saldo awal + penerimaan</small></article><article class="summary-card gold"><span class="card-icon">◷</span><p>Penerimaan hari ini</p><strong data-summary="todayReceipt">Rp 0</strong><small><span class="live-dot"></span> Diperbarui real-time</small></article><article class="summary-card ink"><span class="card-icon">#</span><p>Jumlah transaksi</p><strong data-summary="transactionCount">0</strong><small>Semua penerimaan tercatat</small></article></div>
+      </section>
+
+      <section id="transaksi" class="workspace-grid page-section"><div class="panel form-panel"><div class="panel-header"><div><p class="eyebrow accent">TRANSAKSI BARU</p><h2>Catat penerimaan</h2></div><span class="panel-number">01</span></div><form id="receipt-form"><div class="field-row"><label>Tanggal<input type="date" name="tanggal" required></label><label>Nominal (Rp)<input type="text" name="nominal" inputmode="numeric" placeholder="Contoh: 1.500.000" autocomplete="off" required></label></div><label>Nama pelanggan<input type="text" name="pelanggan_nama" placeholder="Ketik nama pelanggan" required></label><label>Nama akun kas<input type="text" name="akun_kas_nama" placeholder="Contoh: Kas Utama" required></label><label>Metode pembayaran<select name="metode"><option>Transfer</option><option>Tunai</option><option>QRIS</option><option>Debit</option></select></label><label>Keterangan <span class="optional">opsional</span><textarea name="keterangan" rows="2" placeholder="Contoh: Pelunasan invoice INV-024"></textarea></label><button class="submit-button" type="submit">Simpan transaksi <span>→</span></button><p id="form-message" class="form-message" role="status"></p></form></div><div class="panel note-panel"><div class="note-art">◎</div><p class="eyebrow">CATATAN HARI INI</p><h3>Setiap penerimaan membuat arus kas lebih jelas.</h3><p>Pastikan nominal dan akun kas sesuai sebelum transaksi disimpan. Data tersimpan aman di Supabase.</p><div class="note-line"><span class="live-dot"></span> Sinkronisasi aktif</div></div></section>
+
+      <section class="panel table-panel page-section"><div class="panel-header"><div><p class="eyebrow accent">AKTIVITAS TERBARU</p><h2>Riwayat penerimaan</h2></div><button id="refresh-button" class="ghost-button" title="Muat ulang data">↻ Muat ulang</button></div><div class="table-wrap"><table><thead><tr><th>No. transaksi</th><th>Tanggal</th><th>Pelanggan</th><th>Akun kas</th><th>Metode</th><th class="align-right">Nominal</th><th></th></tr></thead><tbody id="receipts-body"><tr><td colspan="7" class="loading">Memuat transaksi...</td></tr></tbody></table></div></section>
+      <footer>kasirium <span>•</span> Sistem Penerimaan Kas</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
